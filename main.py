@@ -98,7 +98,7 @@ def main(user, passwd, step):
     
     response = requests.post(url, data=data, headers=head).json()
     #print(response)
-    result = f"{我}: [{now}] 修改步数（{step}）"+ response['message']
+    result = f"{[我]}: [{now}] 修改步数（{step}）"+ response['message']
     print(result)
     return result
   
