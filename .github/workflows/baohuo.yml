@@ -38,5 +38,4 @@ jobs:
          git commit -m '提交保活'
          git remote set-url origin http://magician8520:${git_pwd}@github.com/magician8520/mistep-wo.git
          git pull
-         git pull origin
          git push
