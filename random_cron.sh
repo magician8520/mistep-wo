@@ -1,11 +1,15 @@
 #!/bin/zsh
 
 sed -i '/cron:/d' .github/workflows/baohuo.yml
-nexttime="date --date='50 day'"
-nm=`expr $nexttime "+%m" + 0`
-nd=`expr $nexttime "+%d" + 0`
-nH=`expr $nexttime "+%H" + 0`
-nM=`expr $nexttime "+%M" + 0`
+nm=`date --date='50 day' "+%m"`
+nd=`date --date='50 day' "+%d"`
+nH=`date --date='50 day' "+%H"`
+nM=`date --date='50 day' "+%M"`
+
+nm=`expr $nm + 0`
+nd=`expr $nd + 0`
+nH=`expr $nh + 0`
+nM=`expr $nM + 0`
 
 # nm=`date -d next-month +%m`
 # time=$(($RANDOM%60))" "$(($RANDOM%23))" 1 "`expr $nm + 0`" *"
