@@ -2,11 +2,11 @@ name: 保活
 
 on:
   push:
-    branches: [master]
+    branches: [ main ]
   pull_request:
-    branches: [master]
+    branches: [ main ]
   schedule:
-    - cron: 19 0 1 * *
+    - cron: 22 0 1 * *
   watch:
     types: started
 
