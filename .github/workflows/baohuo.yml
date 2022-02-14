@@ -1,12 +1,12 @@
 name: 保活
 
 on:
-  push:
-    branches: [ main ]
+#   push:
+#     branches: [ main ]
 #   pull_request:
 #     branches: [ main ]
   schedule:
-    - cron: 40 0 1 * *
+    - cron: 56 0 1 * *
   watch:
     types: started
 
