@@ -17,16 +17,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: 初始化Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
 
     - name: Update system and install zsh
       run: |
         sudo -E apt-get -qq update
         sudo -E apt-get install zsh -y
-          
-    - name: 初始化Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.7
           
     - name: 提交保活
       run: |
