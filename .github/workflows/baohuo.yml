@@ -30,7 +30,6 @@ jobs:
 
       - name: 提交保活
         run: |
-          #zsh random_cron.sh
           git_pwd='${{ secrets.GIT_PWD }}'
           git config --global user.name "magician8520"
           git config --global user.email "magician8520@outlook.com"
