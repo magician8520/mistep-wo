@@ -2,7 +2,7 @@
 
 sed -i '/cron:/d' .github/workflows/baohuo.yml
 nm=`date -d next-month +%m`
-time="0 0 1 "`expr $nm + 0`" *"
+time=$(($RANDOM%60))" "$(($RANDOM%23))" 1 "`expr $nm + 0`" *"
 echo $time
 sed -i '/schedule/a\    - cron: '$time'' .github/workflows/baohuo.yml
 
