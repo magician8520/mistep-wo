@@ -3,8 +3,8 @@ name: 保活
 on:
 #   push:
 #     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+#   pull_request:
+#     branches: [ main ]
   schedule:
     - cron: 50 0 1 * *
   watch:
@@ -36,5 +36,5 @@ jobs:
          git config --global user.email "magician8520@outlook.com"
          git add .
          git commit -m '提交保活'
-         git remote set-url origin http://magician8520:${git_pwd}@github.com/magician8520/mistep-wo.git
+         git remote set-url origin https://magician8520:${git_pwd}@github.com/magician8520/mistep-wo.git
          git push
