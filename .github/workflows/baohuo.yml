@@ -1,39 +1,49 @@
 name: 保活
 
 on:
-  # push:
-  #   branches: [master]
-  # pull_request:
-  #   branches: [master]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   schedule:
-    - cron: 2 4 * * *
+    - cron: 0 0 * * *
   watch:
     types: started
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
-      - name: Checkout codes
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    - name: 初始化Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+    - name: 开始
+      run: |
+        pip install requests
+        pmode='${{ secrets.PMODE }}'
+        pkey='${{ secrets.PKEY }}'
+        user='${{ secrets.USER }}'
+        pwd='${{ secrets.PWD }}'
+        step='${{ secrets.STEP }}'
+        
+        python3 main.py <<EOF
+        ${pmode}
+        ${pkey}
+        ${user}
+        ${pwd}
+        ${step}
+        EOF
 
-      - name: Update system and install zsh
-        run: |
-          sudo -E apt-get -qq update
-          sudo -E apt-get install zsh -y
-      - name: 初始化Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
-
-      - name: 提交保活
-        run: |
-          git_pwd='${{ secrets.GIT_PWD }}'
-          git config --global user.name "magician8520"
-          git config --global user.email "magician8520@outlook.com"
-          git add .
-          git commit -m '提交保活'
-          git remote set-url origin http://magician8520:${git_pwd}@github.com/magician8520/mistep-wo.git
-          git push 
+    - name: 提交保活
+      run: |
+        git_pwd='${{ secrets.GIT_PWD }}'
+        git config --global user.name "magician8520"
+        git config --global user.email "magician8520@outlook.com"
+        git add .
+        git commit -m '提交保活'
+        git remote set-url origin http://magician8520:${git_pwd}@github.com/magician8520/mistep-wo.git
+        git push 
