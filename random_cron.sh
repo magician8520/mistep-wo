@@ -1,6 +1,8 @@
 #!/bin/zsh
 
 sed -i '/cron:/d' .github/workflows/baohuo.yml
+echo 现在`date "+%Y-%m-%d %H:%M:%S"`\n
+echo 50天后`date --date='50 day' "+%Y-%m-%d %H:%M:%S"`\n
 nm=`date --date='50 day' "+%m"`
 nd=`date --date='50 day' "+%d"`
 nH=`date --date='50 day' "+%H"`
