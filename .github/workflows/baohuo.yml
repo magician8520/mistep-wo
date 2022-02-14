@@ -37,5 +37,5 @@ jobs:
          git config --global user.email "magician8520@outlook.com"
          git add .
          git commit -m '提交保活'
-         git remote set-url origin http://magician8520:${git_pwd}@github.com/magician8520/mistep-wo.git
+         git remote set-url origin http://magician8520:${git_pwd}@github.com/$GITHUB_REPOSITORY.git
          git push
