@@ -34,7 +34,7 @@ jobs:
          zsh random_cron.sh
          git_pwd='${{ secrets.GIT_PWD }}'
          git config --global user.name "magician8520"
-         git config --global user.email "$magician8520@outlook.com"
+         git config --global user.email "magician8520@outlook.com"
          git add .
          git commit -m '提交保活'
          git remote set-url origin http://magician8520:${git_pwd}@github.com/${GITHUB_REPOSITORY}.git
